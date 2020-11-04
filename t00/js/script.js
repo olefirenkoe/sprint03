@@ -6,7 +6,7 @@ let space = " ";
 
 while (nameMembers.match(regсomma) == null) {
     alert("Please, use comma");
-    nameMembers = prompt("Please, enter the names of the members of the team AGAIN (please, use \",\" between the words):");
+    nameMembers = prompt("Please, enter the names of the members of the team AGAIN! (please, use \",\" between the words):");
 }
 
 let globalIdea = prompt("Please, describe what are the goals and ideas of the team:");
