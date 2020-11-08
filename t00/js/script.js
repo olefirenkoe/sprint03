@@ -14,7 +14,6 @@ let trueOrnot = prompt("Please, answer: the team is evil or not?(yes,no)");
 let commaMatch = nameMembers.match(regсomma).length;
 let nameMembersArr = nameMembers.split();
 
-
 if (trueOrnot == "yes") {
     trueOrnot = true;
 } else if (trueOrnot == "no") {
@@ -29,7 +28,7 @@ let superTeam = {
     members: nameMembersArr,
     memberCount: commaMatch + 2,
     agenda: globalIdea,
-    isEvil: trueOrnot
+    isEvil: trueOrnot,
 };
 
 alert(`Here's the team:
