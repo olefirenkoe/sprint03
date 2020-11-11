@@ -1,46 +1,30 @@
-// var div1 = document.getElementById("div1");
-// alert(div1);
-// var align = div1.getAttribute("align");
-// alert(align); // отобразит значение атрибута align элемента с id="div1"
-
-// let good = document.getElementsByClassName("good");
-// alert(good);
-// let element = good.getAttribute("align");
-// alert(element);
-
-// element.ul.classList.add('none');
-
-// alert(element.ul.className);
-// for (let i = 0; i < document.body.childNodes.length; i++) {
-//     alert(document.body.childNodes[i]); // Text, DIV, Text, UL, ..., SCRIPT
-// }
-
 let a = document.body.children[1].children;
-let i = 0;
-let j = 0;
 
-// alert(a.length);
-
-
-
-while (i < a.length) {
+for (let i = 0; i < a.length; i++) {
+    a[i].insertAdjacentHTML("beforeEnd", "</br>");
     if (!a[i].className) {
-        a[i].classList.add('none');
+        a[i].classList.add('unknown');
     }
     if (!a[i].getAttribute('data-element')) {
         a[i].setAttribute('data-element', 'none')
     }
-    i++;
-}
+    let data = a[i].getAttribute('data-element');
+    let ArrData = data.split(' ');
+    for (let j = 0; j < ArrData.length; j++) {
+        if (ArrData[j] == "none") {
+            let noneDiv = document.createElement("DIV");
+            let noneDivTwo = document.createElement("DIV");
 
+            noneDiv.setAttribute('class', 'elem none');
+            noneDivTwo.setAttribute('class', 'line');
 
+            a[i].appendChild(noneDiv);
+            noneDiv.appendChild(noneDivTwo);
+        } else {
+            let colorDiv = document.createElement("DIV");
 
-
-
-
-
-
-while (j < a.length) {
-    alert(a[j].getAttribute("data-element"));
-    j++;
+            colorDiv.setAttribute('class', `elem ${ArrData[j]}`);
+            a[i].appendChild(colorDiv);
+        }
+    }
 }
