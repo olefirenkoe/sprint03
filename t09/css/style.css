@@ -1,0 +1,135 @@
+body {
+    background: #282a2d;
+    font-family: 'Lilita One', cursive;
+}
+
+h1 {
+    color: ivory;
+    text-align: center;
+}
+
+.container {
+    padding-left: 30px;
+    padding-top: 5px;
+    text-align: center;
+    margin: 0 auto;
+    width: 860px;
+    height: 670px;
+    background: #303030;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 180px;
+    grid-template-rows: 200px 200px 200px;
+    grid-gap: 25px 20px;
+    grid-template-areas: "item0 item1 item2 sidebar" "item3 item4 item5 sidebar" "item6 item7 item8 sidebar";
+}
+
+.sidebar {
+    background: #c2c2c2;
+    position: relative;
+}
+
+#playersDiv {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+#player1,
+#player2 {
+    line-height: 30px;
+    margin-top: 10px;
+    height: 30px;
+    width: 120px;
+    background-color: #d4d4d4;
+}
+
+#turns {
+    margin-top: 10px;
+}
+
+#turnsNumber {
+    font-size: 30px;
+    position: absolute;
+    top: 150px;
+    right: 80px;
+}
+
+#btnAgain {
+    position: absolute;
+    color: whitesmoke;
+    background: #3e3e3e;
+    bottom: 20px;
+    right: 25px;
+    width: 130px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.item {
+    font-family: 'Lilita One', cursive;
+    font-size: 80px;
+    font-weight: bold;
+    color: #303030;
+    line-height: 200px;
+    box-shadow: 0px 5px 0px #9e9a95, 6px 10px 0px #cf9139;
+}
+
+.item0 {
+    grid-area: item0;
+    background: #c2c2c2;
+}
+
+#btn {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.item1 {
+    grid-area: item1;
+    background: #c2c2c2;
+}
+
+.item2 {
+    grid-area: item2;
+    background: #c2c2c2;
+}
+
+.item3 {
+    grid-area: item3;
+    background: #c2c2c2;
+}
+
+.item4 {
+    grid-area: item4;
+    background: #c2c2c2;
+}
+
+.item5 {
+    grid-area: item5;
+    background: #c2c2c2;
+}
+
+.item6 {
+    grid-area: item6;
+    background: #c2c2c2;
+}
+
+.item7 {
+    grid-area: item7;
+    background: #c2c2c2;
+}
+
+.item8 {
+    grid-area: item8;
+    background: #c2c2c2;
+}
+
+.item:hover {
+    box-shadow: 5px 5px 0px #9e9a95;
+}
