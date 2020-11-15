@@ -4,6 +4,9 @@ let counter = true;
 let count = 0;
 sidebar.setAttribute('class', 'sidebar');
 container.append(sidebar);
+let itemWinner = document.getElementsByClassName('item');
+let winner = document.createElement('DIV');
+winner.setAttribute('id', 'winner');
 
 let sidebarAgain = document.getElementsByClassName('sidebar');
 sidebarAgain.item(0).innerHTML = `<input id="btnAgain" type="button" onclick="AddGame()" value="PLAY AGAIN"></input>`;
@@ -33,6 +36,13 @@ function inner() {
     for (let j = 0; j < 9; j++) {
         let NewItem = document.getElementsByClassName('item');
         NewItem.item(j).innerHTML = `<input id="btn" type="button" onclick="AddGame()" data-element="${j}"></input>`;
+        document.getElementsByClassName(`item${j}`).item(0).style.color = '';
+        document.getElementsByClassName(`item${j}`).item(0).style.fontSize = '';
+        winner.innerHTML = '';
+        turnsNumber.style.color = '';
+        document.getElementById('turns').style.color = '';
+        document.getElementsByClassName('sidebar').item(0).style.background = '';
+
     }
 };
 
@@ -50,6 +60,7 @@ function AddGame() {
                 playerCounter()
                 count++
                 countTurns();
+                checker();
             }
         if (target.getAttribute('value') == 'PLAY AGAIN') {
             counter = true;
@@ -67,6 +78,7 @@ function AddGame() {
                 playerCounter();
                 count++
                 countTurns();
+                checker();
             }
         if (target.getAttribute('value') == 'PLAY AGAIN') {
             counter = true;
@@ -91,8 +103,91 @@ function playerCounter() {
     }
 }
 
-// function checker() {
 
-// }
+function doItIfEnd(a, b, c, f) {
+    for (let i = a; i < b; i += c) {
+        itemWinner.item(i).style.color = '#2f7731';
+        itemWinner.item(i).style.fontSize = '100px';
+    }
+    winner.innerHTML = `Player ${f} won!`;
+    winner.style.color = 'white';
+    turnsNumber.style.color = 'white';
+    document.getElementById('turns').style.color = 'white';
+    document.getElementsByClassName('sidebar').item(0).appendChild(winner);
+    document.getElementsByClassName('sidebar').item(0).style.background = '#2f7731';
+    for (let k = 0; k < 9; k++) {
+        if (itemWinner.item(k).innerHTML == `<input id="btn" type="button" onclick="AddGame()" data-element="${k}">`) {
+            itemWinner.item(k).innerHTML = "";
+        }
+    }
+}
 
-console.log(document.getElementsByClassName('item0').item(0).innerHTML); // use for function checker
+function checker() {
+    // check for Draw
+    draw();
+    // check for "X"
+    if ((itemWinner.item(0).innerHTML == 'X') && (itemWinner.item(1).innerHTML == 'X') && (itemWinner.item(2).innerHTML == 'X')) {
+        doItIfEnd(0, 3, 1, 1);
+    }
+    if ((itemWinner.item(3).innerHTML == 'X') && (itemWinner.item(4).innerHTML == 'X') && (itemWinner.item(5).innerHTML == 'X')) {
+        doItIfEnd(3, 6, 1, 1);
+    }
+    if ((itemWinner.item(6).innerHTML == 'X') && (itemWinner.item(7).innerHTML == 'X') && (itemWinner.item(8).innerHTML == 'X')) {
+        doItIfEnd(6, 9, 1, 1);
+    }
+    if ((itemWinner.item(0).innerHTML == 'X') && (itemWinner.item(3).innerHTML == 'X') && (itemWinner.item(6).innerHTML == 'X')) {
+        doItIfEnd(0, 9, 3, 1);
+    }
+    if ((itemWinner.item(1).innerHTML == 'X') && (itemWinner.item(4).innerHTML == 'X') && (itemWinner.item(7).innerHTML == 'X')) {
+        doItIfEnd(1, 8, 3, 1);
+    }
+    if ((itemWinner.item(2).innerHTML == 'X') && (itemWinner.item(5).innerHTML == 'X') && (itemWinner.item(8).innerHTML == 'X')) {
+        doItIfEnd(2, 9, 3, 1);
+    }
+    if ((itemWinner.item(0).innerHTML == 'X') && (itemWinner.item(4).innerHTML == 'X') && (itemWinner.item(8).innerHTML == 'X')) {
+        doItIfEnd(0, 9, 4, 1);
+    }
+    if ((itemWinner.item(2).innerHTML == 'X') && (itemWinner.item(4).innerHTML == 'X') && (itemWinner.item(6).innerHTML == 'X')) {
+        doItIfEnd(2, 7, 2, 1);
+    }
+    // check for "O"
+    if ((itemWinner.item(0).innerHTML == 'O') && (itemWinner.item(1).innerHTML == 'O') && (itemWinner.item(2).innerHTML == 'O')) {
+        doItIfEnd(0, 3, 1, 2);
+    }
+    if ((itemWinner.item(3).innerHTML == 'O') && (itemWinner.item(4).innerHTML == 'O') && (itemWinner.item(5).innerHTML == 'O')) {
+        doItIfEnd(3, 6, 1, 2);
+    }
+    if ((itemWinner.item(6).innerHTML == 'O') && (itemWinner.item(7).innerHTML == 'O') && (itemWinner.item(8).innerHTML == 'O')) {
+        doItIfEnd(6, 9, 1, 2);
+    }
+    if ((itemWinner.item(0).innerHTML == 'O') && (itemWinner.item(3).innerHTML == 'O') && (itemWinner.item(6).innerHTML == 'O')) {
+        doItIfEnd(0, 9, 3, 2);
+    }
+    if ((itemWinner.item(1).innerHTML == 'O') && (itemWinner.item(4).innerHTML == 'O') && (itemWinner.item(7).innerHTML == 'O')) {
+        doItIfEnd(1, 8, 3, 2);
+    }
+    if ((itemWinner.item(2).innerHTML == 'O') && (itemWinner.item(5).innerHTML == 'O') && (itemWinner.item(8).innerHTML == 'O')) {
+        doItIfEnd(2, 9, 3, 2);
+    }
+    if ((itemWinner.item(0).innerHTML == 'O') && (itemWinner.item(4).innerHTML == 'O') && (itemWinner.item(8).innerHTML == 'O')) {
+        doItIfEnd(0, 9, 4, 2);
+    }
+    if ((itemWinner.item(2).innerHTML == 'O') && (itemWinner.item(4).innerHTML == 'O') && (itemWinner.item(6).innerHTML == 'O')) {
+        doItIfEnd(2, 7, 2, 2);
+    }
+}
+
+function draw() {
+    let j = 0;
+    for (let i = 0; i <= 8; i++) {
+        if (itemWinner.item(i).innerHTML == 'X' || itemWinner.item(i).innerHTML == 'O') {
+            j += 1;
+        }
+    }
+    if (j == 9) {
+        winner.innerHTML = `It's a draw!`;
+        winner.style.color = '#303030';
+        document.getElementsByClassName('sidebar').item(0).style.background = '#cf9139';
+    }
+
+}
