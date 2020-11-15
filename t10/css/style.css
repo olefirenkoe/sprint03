@@ -1,0 +1,26 @@
+body {
+    display: flex;
+}
+
+#container {
+    margin: auto;
+    margin-top: 200px;
+    display: grid;
+    grid-template-columns: 50px 600px 50px;
+    grid-template-rows: 500px;
+    grid-template-areas: "previous photo next";
+}
+
+#previous {
+    grid-area: previous;
+    background: #dfdfdf;
+}
+
+#next {
+    grid-area: next;
+    background: #dfdfdf;
+}
+
+#photo {
+    grid-area: photo;
+}
