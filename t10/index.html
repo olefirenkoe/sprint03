@@ -10,9 +10,17 @@
 
 <body>
     <div id="container">
-        <div id="previous"></div>
-        <div id="photo"></div>
-        <div id="next"></div>
+        <div id="previous">
+            <label for="btnPrevious"><img class="play previous" src="assets/images/play.png"></label>
+            <input id="btnPrevious" class="btn" type="button" onclick="nextOrPrevious()" data-elemnt="previous">
+        </div>
+        <div id="photo">
+            <img class="img" src="assets/images/batman.jpg" alt="superhero">
+        </div>
+        <div id="next">
+            <label for="btnNext"><img class="play" src="assets/images/play.png"></label>
+            <input id="btnNext" class="btn" type="button" onclick="nextOrPrevious()" data-elemnt="next">
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
