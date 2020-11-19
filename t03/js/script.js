@@ -52,9 +52,9 @@ function changeWords(obj, oldWrds, newWrds) {
     return obj;
 }
 
-// const obj = {
-//     words: 'newspapers newspapers  books magazines'
-// };
+const obj = {
+    words: 'newspapers newspapers  books magazines'
+};
 
 // // obj.words.concat('radio newspapers   ');
 // console.log(obj); // {words: "newspapers newspapers  books magazines"}
